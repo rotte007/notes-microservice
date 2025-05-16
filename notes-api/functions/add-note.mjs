@@ -24,7 +24,7 @@ const dynamodb = DynamoDBDocumentClient.from(client);
 const tableName = process.env.NOTES_TABLE;
 
 const baseHandler = async (event) => {
-    const item = event.body;
+    const item = event.body.Item;
 
     item.user_id = util.getUserId(event.headers);
     item.user_name = util.getUserName(event.headers);
